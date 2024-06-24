@@ -13,6 +13,7 @@ import { Product } from '../../../shared/models/product.model';
 })
 export class ListComponent {
   products = signal<Product[]>([]);
+  cart = signal<Product[]>([]);
 
   constructor() {
     const initProducts: Product[] = [
@@ -43,7 +44,7 @@ export class ListComponent {
         price: 1000,
         image: "https://picsum.photos/640/640?r=15",
         createdAt: new Date().toISOString()
-      },{
+      }, {
         id: Date.now(),
         title: 'Product 3',
         price: 1000,
@@ -54,8 +55,7 @@ export class ListComponent {
     this.products.set(initProducts)
   }
 
-  fromChild(event: string) {
-    console.log('estamos en el padre');
-    console.log(event);
+  addToCart(product: Product) {
+    this.cart.update(prevState => [...prevState, product]);
   }
 }
