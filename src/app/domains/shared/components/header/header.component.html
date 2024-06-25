@@ -85,9 +85,9 @@
   <div
     class="grid grid-cols-3 my-3 text-sm"
     *ngFor="let product of cart()">
-    <img [src]="product.image" [alt]="product.title" class="col-span-1 w-full rounded"/>
+    <img [src]="product.image" [alt]="product.title" class="col-span-1 w-full rounded object-contain"/>
     <div class="col-span-1 ml-2 flex flex-col justify-between">
-      <span class="font-bold">{{product.title}}</span>
+      <span class="font-bold line-clamp-3">{{product.title}}</span>
       <span class="text-gray-500">Blue</span>
       <span class="text-gray-500">Qty 1</span>
     </div>
