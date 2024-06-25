@@ -40,7 +40,7 @@
     </div>
     <div class="flex items-center">
       <button class="p-2 rounded relative" (click)="toggleSideMenu()">
-        <div class="absolute -top-2 left-6 rounded-full h-5 w-5 bg-black text-white text-xs flex items-center justify-center">{{cart.length}}</div>
+        <div class="absolute -top-2 left-6 rounded-full h-5 w-5 bg-black text-white text-xs flex items-center justify-center">{{cart().length}}</div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -84,7 +84,7 @@
   </div>
   <div
     class="grid grid-cols-3 my-3 text-sm"
-    *ngFor="let product of cart">
+    *ngFor="let product of cart()">
     <img [src]="product.image" [alt]="product.title" class="col-span-1 w-full rounded"/>
     <div class="col-span-1 ml-2 flex flex-col justify-between">
       <span class="font-bold">{{product.title}}</span>
