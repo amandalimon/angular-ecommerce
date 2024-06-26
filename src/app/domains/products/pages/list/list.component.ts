@@ -20,15 +20,15 @@ export class ListComponent {
   private cartService = inject(CartService);
 
   ngOnInit() {
-    this.productService.getProducts()
-      .subscribe({
-        next: (products) => {
-          this.products.set(products);
-        },
-        error: (err) => {
-          console.error('Error fetching products', err);
-        }
-      })
+    this.productService.getProducts().subscribe({
+      next: (products) => {
+        this.products.set(products);
+        (console.log(products))
+      },
+      error: (err) => {
+        console.error('Error fetching products', err);
+      }
+    });
   }
 
   addToCart(product: Product) {
