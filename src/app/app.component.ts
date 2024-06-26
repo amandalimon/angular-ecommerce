@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './domains/shared/components/header/header.component';
+import { HeaderComponent } from '@shared/components/header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +9,5 @@ import { HeaderComponent } from './domains/shared/components/header/header.compo
   template: '<router-outlet/>`',
 })
 export class AppComponent {
-  title = 'store';
+  title = 'Angular Goods';
 }
