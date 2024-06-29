@@ -1,29 +1,29 @@
-<nav class="shadow-md">
-  <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+<nav class="shadow-md fixed top-0 bg-white w-full z-50">
+  <div class="container mx-auto max-w-screen-xl px-24 flex items-center justify-between py-4">
     <div class="flex items-center space-x-4">
-      <a href="https://flowbite.com/" class="flex items-center">
+      <a routerLink="/" class="flex items-center">
         <img
           src="favicon.ico"
           class="h-6 mr-2"
-          alt="Flowbite Logo"
+          alt="AngularGoods Logo"
         />
         <span class="text-xl font-bold italic">AngularGoods</span>
       </a>
       <ul class="hidden md:flex space-x-4">
         <li>
-          <a href="#" class="underline hover:underline">Home</a>
+          <a routerLink="/" class="underline hover:underline">Home</a>
         </li>
         <li>
-          <a href="#" class="hover:underline">About</a>
+          <a routerLink="/about" class="hover:underline">About</a>
         </li>
         <li>
-          <a href="#" class="hover:underline">Services</a>
+          <a routerLink="/services" class="hover:underline">Services</a>
         </li>
       </ul>
     </div>
     <div class="flex items-center">
       <button class="p-2 rounded relative" (click)="toggleSideMenu()">
-        <div class="absolute -top-2 left-6 rounded-full h-5 w-5 bg-black text-white text-xs flex items-center justify-center">{{cart().length}}</div>
+        <div class="absolute -top-1 left-6 rounded-full h-4 w-4 bg-black text-white text-xs flex items-center justify-center">{{cart().length}}</div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

@@ -6,7 +6,7 @@ import { HeaderComponent } from '@shared/components/header/header.component';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, HeaderComponent],
-  template: '<router-outlet/>`',
+  template: '<app-header/><router-outlet/>`',
 })
 export class AppComponent {
   title = 'Angular Goods';
