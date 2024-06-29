@@ -17,4 +17,8 @@ export class ProductService {
     return this.http.get<{ products: Product[], total: number, skip: number, limit: number }>
       ('https://dummyjson.com/products?limit=36&skip=77').pipe(map(response => response.products));
   }
+
+  getOne(id: string) {
+    return this.http.get<Product>(`https://dummyjson.com/products/${id}`)
+  }
 }
