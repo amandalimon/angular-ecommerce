@@ -9,13 +9,29 @@
     </a>
     <ul class="hidden md:flex space-x-4">
       <li>
-        <a routerLink="/" class="underline hover:underline">Home</a>
+        <a
+          routerLink="/"
+          routerLinkActive="underline"
+          [routerLinkActiveOptions]="{exact: true}"
+          class="hover:underline">
+          Home
+        </a>
       </li>
       <li>
-        <a routerLink="/about" class="hover:underline">About</a>
+        <a
+        routerLink="/about"
+        routerLinkActive="underline"
+        class="hover:underline">
+        About
+      </a>
       </li>
       <li>
-        <a routerLink="/services" class="hover:underline">Services</a>
+        <a
+        routerLink="/services"
+        routerLinkActive="underline"
+        class="hover:underline">
+        Services
+      </a>
       </li>
     </ul>
   </div>
