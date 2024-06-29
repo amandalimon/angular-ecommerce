@@ -1,5 +1,8 @@
 <div class="group rounded-lg border h-[400px] flex flex-col shadow-md">
-  <a href="#" class="w-full overflow-hidden rounded-t-lg">
+  <a
+    [routerLink]="['/product/', product.id]"
+    class="w-full overflow-hidden rounded-t-lg"
+  >
     <img
       [src]="product.thumbnail"
       [alt]="product.title"
