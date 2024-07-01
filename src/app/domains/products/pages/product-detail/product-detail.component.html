@@ -3,21 +3,20 @@
     <div class="w-full rounded border border-gray-200">
       <img
         [alt]="product()?.title"
-        [src]="product()?.thumbnail"
+        [src]="cover()"
         class="w-full object-cover object-center"
       />
     </div>
     <div class="flex items-center justify-center mt-1">
       <div class="grid grid-cols-3 gap-1">
-        <img alt="ecommerce"
+        <img
+          alt="ecommerce"
           class="object-cover object-center rounded border-2 border-gray-200"
-          src="https://www.whitmorerarebooks.com/pictures/medium/2465.jpg" />
-          <img alt="ecommerce"
-          class="w-full object-cover object-center rounded border-2 border-gray-200"
-          src="https://www.whitmorerarebooks.com/pictures/medium/2465.jpg" />
-          <img alt="ecommerce"
-          class="w-full object-cover object-center rounded border-2 border-gray-200"
-          src="https://www.whitmorerarebooks.com/pictures/medium/2465.jpg" />
+          *ngFor="let img of product()?.images"
+          [src]="img"
+          (click)="changeCover(img)"
+          [class.border-fuchsia-300]="img === cover()"
+        />
       </div>
     </div>
   </div>
@@ -32,9 +31,13 @@
       {{ product()?.description }}
     </p>
     <p class="title-font font-medium text-2xl text-gray-900 mt-5">
-      {{ product()?.price }}
-    </p> <button
-      class="flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"> Add To Cart
+      {{ product()?.price | currency: '$' }}
+    </p>
+    <button
+      class="flex text-white bg-rose-500 border-0 py-2 px-6 focus:outline-none hover:bg-rose-600 rounded mt-3"
+      (click)="addToCart()"
+    >
+      Add To Cart
     </button>
   </div>
 </div>
