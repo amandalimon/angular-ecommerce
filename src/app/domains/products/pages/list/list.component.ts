@@ -7,14 +7,14 @@ import { Product } from '@shared/models/product.model';
 import { CartService } from '@shared/services/cart.service';
 import { ProductService } from '@shared/services/product.service';
 import { CategoryService } from '@shared/services/category.service';
-import { Category } from '@shared/models/category.model';
+import { CategoryFormatPipe } from "@shared/pipes/category-format.pipe";
 
 @Component({
-  selector: 'app-list',
-  standalone: true,
-  imports: [CommonModule, RouterLinkWithHref, ProductComponent, HeaderComponent],
-  templateUrl: './list.component.html',
-  styleUrl: './list.component.css'
+    selector: 'app-list',
+    standalone: true,
+    templateUrl: './list.component.html',
+    styleUrl: './list.component.css',
+    imports: [CommonModule, RouterLinkWithHref, ProductComponent, HeaderComponent, CategoryFormatPipe]
 })
 export class ListComponent {
 
