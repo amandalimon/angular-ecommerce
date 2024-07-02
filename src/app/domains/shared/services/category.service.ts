@@ -12,6 +12,6 @@ export class CategoryService {
   constructor() { }
 
   getAll() {
-    return this.http.get<Category[]>('https://dummyjson.com/products/categories')
+    return this.http.get<string>('https://dummyjson.com/products/category-list')
   }
 }

@@ -13,9 +13,26 @@ export class ProductService {
 
   constructor() { }
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get<{ products: Product[], total: number, skip: number, limit: number }>
-      ('https://dummyjson.com/products?limit=36&skip=77').pipe(map(response => response.products));
+  // getProducts(category_name?: string): Observable<Product[]> {
+  //   const url = new URL('https://dummyjson.com/products?limit=36&skip=77');
+  //   if(category_name){
+  //     url.searchParams.set('category_name', category_name);
+  //   }
+  //   return this.http.get<{ products: Product[], total: number, skip: number, limit: number }>
+  //     (url.toString()).pipe(map(response => response.products));
+  // }
+
+  private baseUrl = 'https://dummyjson.com/products';
+
+
+  getProducts(category_name?: string, skip: number = 0, limit: number = 10): Observable<Product[]> {
+    let url = `${this.baseUrl}?limit=${limit}&skip=${skip}`;
+    if (category_name) {
+      url = `https://dummyjson.com/products/category/${category_name}`;
+    }
+    return this.http.get<{ products: Product[], total: number, skip: number, limit: number }>(url).pipe(
+      map(response => response.products)
+    );
   }
 
   getOne(id: string) {
