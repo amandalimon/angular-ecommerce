@@ -1,5 +1,5 @@
 import { Component, Input, SimpleChanges, inject, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterLinkWithHref } from '@angular/router';
 import { ProductComponent } from '@products/components/product/product.component';
 import { HeaderComponent } from '@shared/components/header/header.component';
@@ -14,7 +14,7 @@ import { CategoryFormatPipe } from "@shared/pipes/category-format.pipe";
     standalone: true,
     templateUrl: './list.component.html',
     styleUrl: './list.component.css',
-    imports: [CommonModule, RouterLinkWithHref, ProductComponent, HeaderComponent, CategoryFormatPipe]
+    imports: [RouterLinkWithHref, ProductComponent, HeaderComponent, CategoryFormatPipe]
 })
 export class ListComponent {
 

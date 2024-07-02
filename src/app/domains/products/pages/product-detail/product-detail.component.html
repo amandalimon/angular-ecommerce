@@ -5,39 +5,40 @@
         [alt]="product()?.title"
         [src]="cover()"
         class="w-full object-cover object-center"
-      />
-    </div>
-    <div class="flex items-center justify-center mt-1">
-      <div class="grid grid-cols-3 gap-1">
-        <img
-          alt="ecommerce"
-          class="object-cover object-center rounded border-2 border-gray-200"
-          *ngFor="let img of product()?.images"
-          [src]="img"
-          (click)="changeCover(img)"
-          [class.border-fuchsia-300]="img === cover()"
         />
       </div>
+      <div class="flex items-center justify-center mt-1">
+        <div class="grid grid-cols-3 gap-1">
+          @for (img of product()?.images; track img) {
+            <img
+              alt="ecommerce"
+              class="object-cover object-center rounded border-2 border-gray-200"
+              [src]="img"
+              (click)="changeCover(img)"
+              [class.border-fuchsia-300]="img === cover()"
+              />
+          }
+        </div>
+      </div>
+    </div>
+    <div class="mt-5 w-full">
+      <h2 class="text-sm title-font text-gray-500 tracking-widest">
+        {{ product()?.brand }}
+      </h2>
+      <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
+        {{ product()?.title }}
+      </h1>
+      <p class="leading-relaxed">
+        {{ product()?.description }}
+      </p>
+      <p class="title-font font-medium text-2xl text-gray-900 mt-5">
+        {{ product()?.price | currency: '$' }}
+      </p>
+      <button
+        class="flex text-white bg-rose-500 border-0 py-2 px-6 focus:outline-none hover:bg-rose-600 rounded mt-3"
+        (click)="addToCart()"
+        >
+        Add To Cart
+      </button>
     </div>
   </div>
-  <div class="mt-5 w-full">
-    <h2 class="text-sm title-font text-gray-500 tracking-widest">
-      {{ product()?.brand }}
-    </h2>
-    <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">
-      {{ product()?.title }}
-    </h1>
-    <p class="leading-relaxed">
-      {{ product()?.description }}
-    </p>
-    <p class="title-font font-medium text-2xl text-gray-900 mt-5">
-      {{ product()?.price | currency: '$' }}
-    </p>
-    <button
-      class="flex text-white bg-rose-500 border-0 py-2 px-6 focus:outline-none hover:bg-rose-600 rounded mt-3"
-      (click)="addToCart()"
-    >
-      Add To Cart
-    </button>
-  </div>
-</div>
